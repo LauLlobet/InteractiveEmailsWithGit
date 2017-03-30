@@ -1,0 +1,9 @@
+{
+    "host":  "api.github.com",
+    "port": 443,
+    "method": "GET",
+    "headers": {
+        "Content-Type": "application/json",
+        "User-Agent": "LauLlobet"
+    }
+  }

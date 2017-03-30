@@ -1,0 +1,34 @@
+{
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.18.0",
+    "exec": "^0.2.1",
+    "github-download": "^0.5.0",
+    "jshint": "^2.9.4",
+    "sync-request": "^4.0.1"
+  },
+  "dependencies": {
+    "promise": "^7.1.1"
+  },
+  "name": "InteractiveEmailsWithGit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauLlobet/InteractiveEmailsWithGit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LauLlobet/InteractiveEmailsWithGit/issues"
+  },
+  "homepage": "https://github.com/LauLlobet/InteractiveEmailsWithGit#readme",
+  "description": ""
+}
