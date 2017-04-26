@@ -1,7 +1,7 @@
 var fs = require('fs');
 //var gcloud = require("gcloud");
 
-function FirebaseUploader(success, fail) {
+function FirebaseUploader(filePath,success, fail) {
 
 	var gcs = require('@google-cloud/storage')({
 		projectId: "borram",
@@ -12,8 +12,8 @@ function FirebaseUploader(success, fail) {
 
 	bucket.upload('./images/AAA.txt', function(err, file) {
 		if (!err) {
-			console.log("mountains.png is now in your bucket.");
-			console.log("URL: https://storage.cloud.google.com/borram-5bbd8.appspot.com/AAA.txt");
+			//console.log("mountains.png is now in your bucket.");
+			//console.log("URL: https://storage.cloud.google.com/borram-5bbd8.appspot.com/AAA.txt");
 			success();
 			return;
 		} 
