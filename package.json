@@ -8,7 +8,12 @@
     "sync-request": "^4.0.1"
   },
   "dependencies": {
-    "promise": "^7.1.1"
+    "@google-cloud/storage": "^1.1.0",
+    "firebase": "^3.8.0",
+    "fs": "0.0.1-security",
+    "github-download": "^0.5.0",
+    "promise": "^7.1.1",
+    "rimraf": "^2.6.1"
   },
   "name": "InteractiveEmailsWithGit",
   "version": "1.0.0",
