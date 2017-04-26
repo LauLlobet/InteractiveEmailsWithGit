@@ -1,20 +1,29 @@
 var fs = require('fs');
+//var gcloud = require("gcloud");
 
-function FirebaseUploader(option, success, fail) {
-	success();
-	const keyFilename = "./interactiveemailtree-firebase-adminsdk-quhof-bffd73b347.json"; //replace this with api key file
-	const projectId = "my-project-id-should-go-here" //replace with your project id
-	const bucketName = `${projectId}.appspot.com`;
+function FirebaseUploader(success, fail) {
 
-	const gcs = require('@google-cloud/storage')({
-		projectId,
-		keyFilename
+	var gcs = require('@google-cloud/storage')({
+		projectId: "borram",
+		keyFilename: 'src/borram-f2062742b6bc.json'
 	});
 
-	const bucket = gcs.bucket(bucketName);
+	var bucket = gcs.bucket('borram-5bbd8.appspot.com');
 
-
+	bucket.upload('./images/AAA.txt', function(err, file) {
+		if (!err) {
+			console.log("mountains.png is now in your bucket.");
+			console.log("URL: https://storage.cloud.google.com/borram-5bbd8.appspot.com/AAA.txt");
+			success();
+			return;
+		} 
+		fail(err);
+	});
+	
 
 }
+
+
+
 
 module.exports = FirebaseUploader;

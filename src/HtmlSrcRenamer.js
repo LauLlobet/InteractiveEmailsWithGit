@@ -10,14 +10,13 @@ function HtmlSrcRenamer(path) {
 }
 
 String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
+  var target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
 };
 
 HtmlSrcRenamer.prototype.doIt = function(initial) {
-  return initial.replaceAll("src=\"","src=\""  + this.path);
+  return initial.replaceAll("src=\"", "src=\"" + this.path);
 };
-
 
 
 
