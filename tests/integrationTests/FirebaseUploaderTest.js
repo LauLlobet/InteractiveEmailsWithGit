@@ -16,28 +16,24 @@ function auxUrlExist(url, path, callback) {
     },
     req = http.request(options, function(r) {
       console.log(r.headers);
+      console.log(r.content);
       callback();
     });
   req.end();
 }
 
 describe('FirebaseUploader', function() {
-  it('constructor\'s succeed callback should be called if the firebase file is updated.', function(done) {
+  it.only('constructor\'s succeed callback should be called if the firebase file is updated.', function(done) {
     this.timeout(10000);
     rimraf.sync("./tmp");
-    var firebaseUploaderTest = new FirebaseUploader(function() {
-      done();
-    }, function(args) {
-      done(args);
-    });
-    // var firebaseUploaderTest = new FirebaseUploader("./pseudoalgorithm.txt","tempForTests", function() {
-    //       auxUrlExist("www.stackoverflow.com","questions/26007187/node-js-check-if-a-remote-url-exists", function () {
-    //         done();
-    //       });
-    //   },function() {
-    //     done("Error. Connection not succeed");
+    var firebaseUploaderTest = new FirebaseUploader("./images/BBB.txt", function() {
+           auxUrlExist("storage.cloud.google.com","borram-5bbd8.appspot.com/AAA.txt", function () {
+             done();
+           });
+     },function() {
+         done("Error. Connection not succeed");
 
-    //   });
+     });
 
   });
 });
