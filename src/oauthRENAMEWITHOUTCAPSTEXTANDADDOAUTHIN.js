@@ -1,1 +1,0 @@
-module.exports =  "?client_id=YOURCLIENTID&client_secret=YOURCLIENTSECRET" ;
