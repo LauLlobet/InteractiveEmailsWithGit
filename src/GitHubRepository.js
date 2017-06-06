@@ -2,7 +2,7 @@
 
 var ghdownload = require('github-download');
 var getJSON = require("./getJSON");
-var oauth = require("./oauth");
+var oauth = require("../auths/oauth");
 
 
 function GitHubRepository(user, repositoryName, succed, fail) {
@@ -16,7 +16,6 @@ function GitHubRepository(user, repositoryName, succed, fail) {
 
 GitHubRepository.prototype.isExisting = function(succed, fail) {
   this.setPath('/repos/' + this.user + '/' + this.repositoryName);
-  console.log(this.options.path);
   this.jsonFromApiIsFound(succed, fail);
 };
 

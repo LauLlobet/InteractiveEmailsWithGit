@@ -23,7 +23,6 @@ function auxUrlExist(url, path, callback) {
 
 describe('FirebaseUploader', function() {
   it('constructor\'s succeed callback should be called if the firebase file is updated.', function(done) {
-    this.timeout(10000);
     rimraf.sync("./tmp");
     var firebaseUploaderTest = new FirebaseUploader(function() {
       done();
