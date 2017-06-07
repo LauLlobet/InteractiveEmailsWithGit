@@ -2,7 +2,7 @@
 
 var ghdownload = require('github-download');
 var getJSON = require("./getJSON");
-var oauth = require("./oauth");
+var oauth = require("../auths/oauth");
 
 
 function HtmlSrcRenamer(path) {

@@ -6,7 +6,7 @@ function GitHubDownloader() {
 
 }
 
-GitHubDownloader.prototype.download = function(gitHubRepository, success, fail) {
+GitHubDownloader.prototype.download = function(gitHubRepository, folder, success, fail) {
 	//fs.writeFileSync('./tmp/dummy.txt','fjjdffd');
 	//fs.writeFileSync('./tmp/dummy2222.txt','dfghdfgh');
 
@@ -16,18 +16,18 @@ GitHubDownloader.prototype.download = function(gitHubRepository, success, fail) 
 			user: 'LauLlobet',
 			repo: 'cvFromGithub',
 			ref: '24feb'
-		}, "./tmp")
+		}, folder)
 		.on('dir', function(dir) {
-			console.log(dir);
+			//console.log(dir);
 		})
 		.on('file', function(file) {
-			console.log(file);
+			//console.log(file);
 		})
 		.on('zip', function(zipUrl) { //only emitted if Github API limit is reached and the zip file is downloaded 
-			console.log(zipUrl);
+			//console.log(zipUrl);
 		})
 		.on('error', function(err) {
-			console.error(err);
+			//console.error(err);
 			fail();
 		})
 		.on('end', function() {
