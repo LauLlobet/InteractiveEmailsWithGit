@@ -4,6 +4,6 @@
     "method": "GET",
     "headers": {
         "Content-Type": "application/json",
-        "User-Agent": "LauLlobet" //<------ key point
+        "User-Agent": "LauLlobet"
     }
   }
