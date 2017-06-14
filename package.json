@@ -13,9 +13,11 @@
     "firebase": "^3.8.0",
     "fs": "0.0.1-security",
     "github-download": "^0.5.0",
+    "mailinator": "^1.0.2",
     "promise": "^7.1.1",
     "request": "^2.81.0",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "sendgrid": "^5.1.1"
   },
   "name": "InteractiveEmailsWithGit",
   "version": "1.0.0",
