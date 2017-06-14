@@ -9,7 +9,7 @@ var GitHubDownloader = require('./../../src/GitHubDownloader');
 
 describe('GitHubRepository Downloader', function() {
       it('constructor\'s succeed callback should be called if the repository is downloaded and it must be in the temp folder.', function(done) {    
-        this.timeout(30000); 
+        this.timeout(60000); 
         rimraf.sync("./tmp2");
 
         var gitHubRepository = new GitHubRepository("LauLlobet", "cvFromGithub", function() {
