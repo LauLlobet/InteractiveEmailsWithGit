@@ -9,36 +9,64 @@ var http = require('http');
 
 function auxUrlExist(url, path, callback) {
   var options = {
-      method: 'HEAD',
       host: url,
       port: 80,
       path: path
-    },
-    req = http.request(options, function(r) {
-      console.log(r.headers);
-      console.log(r.content);
-      callback();
+    };
+    var content = "";   
+
+    var req = http.request(options, function(res) {
+        res.setEncoding("utf8");
+        res.on("data", function (chunk) {
+            content += chunk;
+        });
+        res.on("end", function () {
+       if(content === "WWWWWWWW\n"){
+            callback(content);
+            return;
+          }
+          callback();        
+        });
     });
-  req.end();
+    req.end();
 }
+
+
 
 describe('FirebaseUploader', function() {
   it('constructor\'s succeed callback should be called if the firebase file is updated.', function(done) {
     this.timeout(10000);
-    rimraf.sync("./tmp");
-    var firebaseUploaderTest = new FirebaseUploader(function() {
-      done();
+    //rimraf.sync("./tmp");
+    var firebaseUploaderTest = new FirebaseUploader('./images/AAA.txt',
+      function(path) {
+      auxUrlExist("storage.googleapis.com",path,function(err){
+        if(!err){
+          done();
+        }else{
+          done("not in a public url err: "+err);    
+        }       
+      });
     }, function(args) {
       done(args);
     });
-    // var firebaseUploaderTest = new FirebaseUploader("./pseudoalgorithm.txt","tempForTests", function() {
-    //       auxUrlExist("www.stackoverflow.com","questions/26007187/node-js-check-if-a-remote-url-exists", function () {
-    //         done();
-    //       });
-    //   },function() {
-    //     done("Error. Connection not succeed");
+  });
+});
 
-    //   });
-
+describe('FirebaseUploader', function() {
+  it('constructor\'s FAIL if file doesent exist.', function(done) {
+    this.timeout(10000);
+    //rimraf.sync("./tmp");
+    var firebaseUploaderTest = new FirebaseUploader('./images/AAAQQQ.txt',
+      function(path) {
+      auxUrlExist("storage.googleapis.com",path,function(err){
+        if(!err){
+          done("ghost file, it shouldn't exist");
+        }else{
+          done("  ");    
+        }       
+      });
+    }, function(args) {
+      done();
+    });
   });
 });
