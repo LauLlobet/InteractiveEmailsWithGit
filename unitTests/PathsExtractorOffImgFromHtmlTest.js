@@ -3,7 +3,7 @@ var expect = chai.expect; // we are using the "expect" style of Chai
 var pathsExtractor = require('./../src/PathsExtractorOffImgFromHtml');
 
 describe('PathsExtractorOffImgFromHtml', function() {
-	it.only('shoud extract all the images paths from a html file', function(done) {
+	it('shoud extract all the images paths from a html file', function(done) {
 		var htmlInitial = '<!DOCTYPE html>' +
 			'<html>' +
 			'<body>' +
