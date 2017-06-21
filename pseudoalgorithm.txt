@@ -2,14 +2,14 @@ var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNoificatio
 
 downloadGitPushFromRepositoryAndBranch(pushEventProperties.repository, pushEventProperties.branch,"/tmp");
 
-var mapOfImagesPath = storeInFIrebaseAllInagesAndGetItsReferencesPathMap("/tmp","IEWG.firebase.com"); // authenification token de firebase
+var mapOfImagesPath = storeInFIrebaseAllInagesAndGetItsReferencesPathMap("/tmp",extracted,"IEWG.firebase.com"); // authenification token de firebase
 
-//"http://IEWG.firebase.com/header.jpg" === mapOfImagesPath["header.jpg"];
+//"http://IEWG.firebase.com/repo/branch/header.jpg" === mapOfImagesPath["./header.jpg"];
 
-//"http://IEWG.firebase.com/868658658675785787867.jpg" === mapOfImagesPath["header.jpg"];
+//"http://IEWG.firebase.com/868658658675785787867.jpg" === mapOfImagesPath["868658658675785787867.jpg"];
 
 
-var indexHtml = extractIndexFromFolder("/tmp");
+var indexHtml = extractIndexHtmlFromFolderToString("/tmp");
 
 
 /*
@@ -22,7 +22,7 @@ var indexHtml = extractIndexFromFolder("/tmp");
 */
 
 
-var indexHtmlCloudified = replacePathsToImagesWithCloudOnes(indexHtml, mapOfImagesPath);
+var indexHtmlCloudified = replacePathsOfLocalImagesToCloudOnes(indexHtml, mapOfImagesPath);
 
 
 /*

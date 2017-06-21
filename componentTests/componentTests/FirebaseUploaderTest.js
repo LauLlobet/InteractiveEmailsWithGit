@@ -37,7 +37,7 @@ describe('FirebaseUploader', function() {
   it('constructor\'s succeed callback should be called if the firebase file is updated.', function(done) {
     this.timeout(10000);
     //rimraf.sync("./tmp");
-    var firebaseUploaderTest = new FirebaseUploader('./images/AAA.txt',
+    FirebaseUploader('./images/AAA.txt',
       function(path) {
       auxUrlExist("storage.googleapis.com",path,function(err){
         if(!err){
