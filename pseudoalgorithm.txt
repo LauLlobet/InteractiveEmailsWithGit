@@ -1,39 +1,42 @@
 var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNoification(httprequest);
 
-downloadGitPushFromRepositoryAndBranch(pushEventProperties.repository, pushEventProperties.branch,"/tmp");
+OKOKOKKOKOKOKO downloadGitPushFromRepositoryAndBranch(pushEventProperties.repository, pushEventProperties.branch,"/tmp");
 
-var mapOfImagesPath = storeInFIrebaseAllInagesAndGetItsReferencesPathMap("/tmp",extracted,"IEWG.firebase.com"); // authenification token de firebase
+OKOKOKKOK var indexHtml = extractIndexHtmlFromFolderToString("/tmp");
 
-//"http://IEWG.firebase.com/repo/branch/header.jpg" === mapOfImagesPath["./header.jpg"];
+		/*
+		<body>
+		    sdhbisdhbisdn
+		    <img src="header.jpg"/>
+		    sdfsdfds
+		    <img src="person.jpg"/>
+		*/
 
-//"http://IEWG.firebase.com/868658658675785787867.jpg" === mapOfImagesPath["868658658675785787867.jpg"];
+var pe = new pathsExtractor();
+var imgList = pe.doIt(indexHtml);
 
+	//[ "person.jpg","person.jpg","person.jpg"]
 
-var indexHtml = extractIndexHtmlFromFolderToString("/tmp");
-
-
-/*
-
-<body>
-    sdhbisdhbisdn
-    <img src="header.jpg"/>
-    sdfsdfds
-    <img src="person.jpg"/>
-*/
+var map = uploadLocalImgsToFirebaseAndGetPath(imgList,repoName,branchName);
 
 
-var indexHtmlCloudified = replacePathsOfLocalImagesToCloudOnes(indexHtml, mapOfImagesPath);
 
 
-/*
 
-<body>
-    sdhbisdhbisdn
-    <img src="http://IEWG.firebase.com/header.jpg"/>
-    sdfsdfds
-    <img src="http://IEWG.firebase.com/person.jpg"/>
-*/
+	//"http://IEWG.firebase.com/repo/branch/header.jpg" === mapOfImagesPath["./header.jpg"];
+
+	//"http://IEWG.firebase.com/868658658675785787867.jpg" === mapOfImagesPath["868658658675785787867.jpg"];
+var indexHtmlCloudified = replacePathsOfLocalImagesToCloudOnesUsingMap(indexHtml, mapOfImagesPath);
 
 
-sendEmailToALlMembersOfEmailList(indexHtmlCloudified,"GNCA emailList"); // authenification token de mailchimp
+		/*
 
+		<body>
+		    sdhbisdhbisdn
+		    <img src="http://IEWG.firebase.com/header.jpg"/>
+		    sdfsdfds
+		    <img src="http://IEWG.firebase.com/person.jpg"/>
+		*/
+
+
+sendEmailToALlMembersOfEmailList(indexHtmlCloudified,"GNCA emailList"); // authenification token de 
