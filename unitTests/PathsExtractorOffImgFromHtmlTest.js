@@ -8,19 +8,18 @@ describe('PathsExtractorOffImgFromHtml', function() {
 			'<html>' +
 			'<body>' +
 			'<h2>Spectacular Mountain</h2>' +
-			'<img src="img/pic_mountain.jpg" alt="Mountain View" style="width:304px;height:228px;">' +
+			'<img src="./img/pic_mountain.jpg" alt="Mountain View" style="width:304px;height:228px;">' +
 			'<img src="img/pic_mountain2.jpg" alt="Mountain View" style="width:304px;height:228px;">' +
-			'<img alt="Mountain View" style="width:304px;height:228px; src="img/pic_mountain3.jpg" ">' +
+			'<img alt="Mountain View" style="width:304px;height:228px; src="img/img/pic_mountain3.png" ">' +
 			'</body>' +
 			'</html>';
 
 			
-		var arrayExpected = ["img/pic_mountain.jpg","img/pic_mountain2.jpg", "img/pic_mountain3.jpg"];
+		var arrayExpected = ["./img/pic_mountain.jpg","img/pic_mountain2.jpg", "img/img/pic_mountain3.png"];
 
 
 		var pe = new pathsExtractor();
 		var ans = pe.doIt(htmlInitial);
-		//assert(ans,htmlFinal,"they have to be the same");
 		expect(ans).to.deep.have.same.members(arrayExpected);
 		done();
 	});

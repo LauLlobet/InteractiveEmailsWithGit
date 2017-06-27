@@ -3,8 +3,8 @@ var fs = require('fs');
 var expect = chai.expect; // we are using the "expect" style of Chai
 var extractIndexHtmlFromFolderToString = require('./../src/ExtractIndexHtmlFromFolderToString');
 
-describe('ExtractIndexHtmlFromFolderToString', function() {
-	it.only('shoud extract idex from folder', function(done) {
+describe('extractIndexHtmlFromFolderToStringTest', function() {
+	it('shoud extract idex from folder', function(done) {
 
 		var htmlInitial = '1234567890';
 		var folder = "tmpBORRAMSIPOTS";
