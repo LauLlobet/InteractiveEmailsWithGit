@@ -11,10 +11,10 @@ function postJSON(json, url,headersVal){
         method: 'POST'
         },
         function (error, response, body) {
-                console.log(body)
+                console.log(body);
             
             console.log("enviado"+ error);
         }
     );
-};
+}
 module.exports = postJSON;

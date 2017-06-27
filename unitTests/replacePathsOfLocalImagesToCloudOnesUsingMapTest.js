@@ -100,6 +100,7 @@ describe('replacePathsOfLocalImagesToCloudOnesUsingMapTest', function() {
 		var htmlcloudified = pe.doIt(htmlInitial, mapOfImagesPath);
 		expect(htmlcloudified).to.equal(indexHtmlCloudifiedExpected);
 		done();
+		//
 
 	});
 	it('shoud replace paths in multiple ocurrences of html file to the existing ones of the files uploaded to Firebase Storage even the names are more and more tricky', function(done) {

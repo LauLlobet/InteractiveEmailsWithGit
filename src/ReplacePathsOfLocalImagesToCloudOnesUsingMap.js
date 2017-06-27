@@ -8,7 +8,9 @@ ReplacePathsOfLocalImagesToCloudOnesUsingMap.prototype.doIt = function(localHtml
 		var regExp = new RegExp('src="'+i+'"', 'g');
 		result = result.replace(regExp, 'src="' + imageSourceMap[i] +'"');
 	}
+    
 
+    //
 	return result;
 };
 
