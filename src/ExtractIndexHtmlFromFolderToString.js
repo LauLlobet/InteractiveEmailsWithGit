@@ -17,10 +17,7 @@ ExtractIndexHtmlFromFolderToString.prototype.doIt = function(success, fail){
 	    	}
 	    });
 
-
-		//success('1234567890');
 };
-
 
 
 
