@@ -1,42 +1,20 @@
+____HEROKU_SESSION______
 var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNoification(httprequest);
 
-OKOKOKKOKOKOKO downloadGitPushFromRepositoryAndBranch(pushEventProperties.repository, pushEventProperties.branch,"/tmp");
+	OKOKOKOKO tempfolder = "/tmp"+CurrentMIllis()+"_"+randNumber();
+	OKOKOKKOK downloadGitPushFromRepositoryAndBranch(pushEventProperties.repository, pushEventProperties.branch,tempfolder)
+	OKOKOKKOK var indexHtml = extractIndexHtmlFromFolderToString(tempfolder);
+	OKOKOKKOK var pe = new pathsExtractor();
+	OKOKOKKOK var imgList = pe.doIt(indexHtml);
 
-OKOKOKKOK var indexHtml = extractIndexHtmlFromFolderToString("/tmp");
+var map = uploadLocalImgsToFirebaseAndGetPath(imgList,tempfolder,githubUploader);
 
-		/*
-		<body>
-		    sdhbisdhbisdn
-		    <img src="header.jpg"/>
-		    sdfsdfds
-		    <img src="person.jpg"/>
-		*/
+	OKOKOKKOK var indexHtmlCloudified = replacePathsOfLocalImagesToCloudOnesUsingMap(indexHtml, mapOfImagesPath);
 
-var pe = new pathsExtractor();
-var imgList = pe.doIt(indexHtml);
+_____COMPONENT____
+var arrayOfEmails = firebaseDocumentDatabaseGetterOfSEmailsSubscribedIntoBranch(pushEventProperties.repository, pushEventProperties.branch);
 
-	//[ "person.jpg","person.jpg","person.jpg"]
+	OKOKOKOKOK SendGridSendEmail sender = new SendGridSendEmail()
 
-var map = uploadLocalImgsToFirebaseAndGetPath(imgList,repoName,branchName);
-
-
-
-
-
-	//"http://IEWG.firebase.com/repo/branch/header.jpg" === mapOfImagesPath["./header.jpg"];
-
-	//"http://IEWG.firebase.com/868658658675785787867.jpg" === mapOfImagesPath["868658658675785787867.jpg"];
-var indexHtmlCloudified = replacePathsOfLocalImagesToCloudOnesUsingMap(indexHtml, mapOfImagesPath);
-
-
-		/*
-
-		<body>
-		    sdhbisdhbisdn
-		    <img src="http://IEWG.firebase.com/header.jpg"/>
-		    sdfsdfds
-		    <img src="http://IEWG.firebase.com/person.jpg"/>
-		*/
-
-
-sendEmailToALlMembersOfEmailList(indexHtmlCloudified,"GNCA emailList"); // authenification token de 
+______MOCKING_______
+sendEmailToALlMembersOfEmailList(sender,indexHtmlCloudified,arrayOfEMails); // authenification token de 

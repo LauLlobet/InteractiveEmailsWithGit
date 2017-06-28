@@ -2,8 +2,6 @@ var chai = require('chai');
 var fs = require('fs');
 var rimraf = require('rimraf');
 var expect = chai.expect; // we are using the "expect" style of Chai
-var GitHubRepository = require('./../../src/GitHubRepository');
-var GitHubDownloader = require('./../../src/GitHubDownloader');
 var FirebaseUploader = require('./../../src/FirebaseUploader');
 var http = require('http');
 
@@ -37,7 +35,8 @@ describe('FirebaseUploader', function() {
   it('constructor\'s succeed callback should be called if the firebase file is updated.', function(done) {
     this.timeout(10000);
     //rimraf.sync("./tmp");
-    FirebaseUploader('./images/AAA.txt',
+    var uploader = new FirebaseUploader();
+    uploader.upload('./images/AAA.txt',
       function(path) {
       auxUrlExist("storage.googleapis.com",path,function(err){
         if(!err){
@@ -56,7 +55,8 @@ describe('FirebaseUploader', function() {
   it('constructor\'s FAIL if file doesent exist.', function(done) {
     this.timeout(10000);
     //rimraf.sync("./tmp");
-    var firebaseUploaderTest = new FirebaseUploader('./images/AAAQQQ.txt',
+    var uploader = new FirebaseUploader();
+    uploader.upload('./images/AAAQQQ.txt',
       function(path) {
       auxUrlExist("storage.googleapis.com",path,function(err){
         if(!err){

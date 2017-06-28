@@ -1,6 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect; // we are using the "expect" style of Chai
-var HtmlSrcRenamer = require('./../src/HtmlSrcRenamer');
+var HtmlSrcRenamer = require('./../../src/HtmlSrcRenamer');
 
 describe('HtmlSrcRenamer', function() {
 	it('shoud change paths of image to provided one', function(done) {

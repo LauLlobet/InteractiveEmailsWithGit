@@ -1,7 +1,7 @@
 var chai = require('chai');
 var fs = require('fs');
 var expect = chai.expect; // we are using the "expect" style of Chai
-var extractIndexHtmlFromFolderToString = require('./../src/ExtractIndexHtmlFromFolderToString');
+var extractIndexHtmlFromFolderToString = require('./../../src/ExtractIndexHtmlFromFolderToString');
 
 describe('extractIndexHtmlFromFolderToStringTest', function() {
 	it('shoud extract idex from folder', function(done) {
@@ -22,9 +22,7 @@ describe('extractIndexHtmlFromFolderToStringTest', function() {
 				done();
 			}, function(ans) {
 				done(ans);
-				console.log(ans);
 			});
-			console.log("The file was succesfully saved!");
 		});
 
 

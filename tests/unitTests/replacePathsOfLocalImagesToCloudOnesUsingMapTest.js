@@ -1,7 +1,7 @@
 var chai = require('chai');
 var fs = require('fs');
 var expect = chai.expect; // we are using the "expect" style of Chai
-var ReplacePathsOfLocalImagesToCloudOnesUsingMap = require('./../src/ReplacePathsOfLocalImagesToCloudOnesUsingMap');
+var ReplacePathsOfLocalImagesToCloudOnesUsingMap = require('./../../src/ReplacePathsOfLocalImagesToCloudOnesUsingMap');
 
 describe('replacePathsOfLocalImagesToCloudOnesUsingMapTest', function() {
 	it('shoud replace one path of local image with the existing path of the file uploaded to Firebase Storage', function(done) {

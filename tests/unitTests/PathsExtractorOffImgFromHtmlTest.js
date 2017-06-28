@@ -1,6 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect; // we are using the "expect" style of Chai
-var pathsExtractor = require('./../src/PathsExtractorOffImgFromHtml');
+var pathsExtractor = require('./../../src/PathsExtractorOffImgFromHtml');
 
 describe('PathsExtractorOffImgFromHtml', function() {
 	it('shoud extract all the images paths from a html file', function(done) {

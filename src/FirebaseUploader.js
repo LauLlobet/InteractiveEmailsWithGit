@@ -1,7 +1,10 @@
 var fs = require('fs');
 //var gcloud = require("gcloud");
 
-function FirebaseUploader(pathToFile, success, fail) {
+function FirebaseUploader(){
+}
+
+FirebaseUploader.prototype.upload = function (pathToFile, success, fail) {
 
 	var gcs = require('@google-cloud/storage')({
 		projectId: "borram",
@@ -22,8 +25,6 @@ function FirebaseUploader(pathToFile, success, fail) {
 			fail();
 		}
 	});
-
-
 }
 
 
