@@ -1,13 +1,18 @@
 ____HEROKU_SESSION______
-var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNoification(httprequest);
-
+var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNoification(jsonFromPost);
+{
+	repository: "interactive"
+	branch: "brancaDelMono"
+}
 	OKOKOKOKO tempfolder = "/tmp"+CurrentMIllis()+"_"+randNumber();
 	OKOKOKKOK downloadGitPushFromRepositoryAndBranch(pushEventProperties.repository, pushEventProperties.branch,tempfolder)
 	OKOKOKKOK var indexHtml = extractIndexHtmlFromFolderToString(tempfolder);
 	OKOKOKKOK var pe = new pathsExtractor();
 	OKOKOKKOK var imgList = pe.doIt(indexHtml);
+	OKOKOKOKK var firebaseUploader = new FirebaseUploader();
 
-var map = uploadLocalImgsToFirebaseAndGetPath(imgList,tempfolder,githubUploader);
+____MOCKING______
+var map = uploadLocalImgsToFirebaseAndGetPath(imgList,tempfolder,firebaseUploader);
 
 	OKOKOKKOK var indexHtmlCloudified = replacePathsOfLocalImagesToCloudOnesUsingMap(indexHtml, mapOfImagesPath);
 

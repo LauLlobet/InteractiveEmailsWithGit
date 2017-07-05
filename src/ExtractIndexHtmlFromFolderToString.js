@@ -3,8 +3,6 @@ var fs = require('fs');
 
 function ExtractIndexHtmlFromFolderToString(pathToFolder) {
  this.pathToFolder = pathToFolder;
-
-	
 }
 
 ExtractIndexHtmlFromFolderToString.prototype.doIt = function(success, fail){

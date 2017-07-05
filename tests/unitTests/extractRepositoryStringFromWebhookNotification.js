@@ -1,5 +1,5 @@
 var chai = require('chai');
-var ExtractBranchAndRepositoryStringsFromWebhookNotification = require('./../../src/ExtractBranchAndRepositoryStringsFromWebhookNotification');
+var ExtractRepositoryStringFromWebhookNotification = require('./../../src/ExtractRepositoryStringFromWebhookNotification');
 var expect = chai.expect; // we are using the "expect" style of Chai
 var json = {
   "ref": "refs/heads/newBranch",
@@ -178,31 +178,31 @@ var json = {
 };
 
 describe('Extract Branch and Repository name from json obtained through github Webhook', function() {
-  it('Should get branch', function(done) {
+  it.only('Should get branch', function(done) {
 
-    var branchExtractor = new ExtractBranchAndRepositoryStringsFromWebhookNotification();
+    var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
     var result = branchExtractor.findBranch(json);
 
-    expect("newBranch").to.equal(result);
+    expect("emailTreeTest").to.equal(result);
     done();
 
   });
-  it('Should get ref field', function(done) {
+  it.only('Should get ref field', function(done) {
 
-    var branchExtractor = new ExtractBranchAndRepositoryStringsFromWebhookNotification();
+    var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
     var result = branchExtractor.getRef(json);
 
-    expect("refs/heads/newBranch").to.equal(result);
+    expect("LauLlobet/emailTreeTest").to.equal(result);
     done();
 
   });
 
-  it('Should split ref field', function(done) {
+  it.only('Should split ref field', function(done) {
 
-    var branchExtractor = new ExtractBranchAndRepositoryStringsFromWebhookNotification();
-    var result = branchExtractor.splitRef("refs/heads/newBranch");
+    var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
+    var result = branchExtractor.splitRef("LauLlobet/emailTreeTest");
 
-    expect(["refs","heads","newBranch"]).to.deep.equal(result);
+    expect(["LauLlobet","emailTreeTest"]).to.deep.equal(result);
     done();
 
   });
