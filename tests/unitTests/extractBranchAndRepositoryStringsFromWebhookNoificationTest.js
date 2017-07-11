@@ -1,5 +1,5 @@
 var chai = require('chai');
-var ExtractBranchAndRepositoryStringsFromWebhookNotification = require('./../../src/ExtractBranchAndRepositoryStringsFromWebhookNotification');
+var ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes = require('./../../src/ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes');
 var expect = chai.expect; // we are using the "expect" style of Chai
 var json = {
   "ref": "refs/heads/newBranch",
@@ -178,34 +178,44 @@ var json = {
 };
 
 describe('Extract Branch and Repository name from json obtained through github Webhook', function() {
-  it('Should get branch', function(done) {
 
-    var branchExtractor = new ExtractBranchAndRepositoryStringsFromWebhookNotification();
-    var result = branchExtractor.findBranch(json);
+  it.only('Get ref should get any property string following the json path provided', function(done) {
 
-    expect("newBranch").to.equal(result);
+    var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes("head_commit.author.email");
+    var result = branchExtractor.getRef(json);
+
+    expect(result).to.equal("lau@MacBook-Air-de-Lau.local");
     done();
 
   });
-  it('Should get ref field', function(done) {
 
-    var branchExtractor = new ExtractBranchAndRepositoryStringsFromWebhookNotification();
-    var result = branchExtractor.getRef(json);
+  it.only('Should get first property string with repository.name', function(done) {
 
-    expect("refs/heads/newBranch").to.equal(result);
+    var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes("repository.full_name", 0);
+    var result = branchExtractor.getProperty(json);
+
+    expect(result).to.equal("LauLlobet");
+    done();
+
+  });
+
+  it.only('Should get second property string with repository.name', function(done) {
+
+    var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes("repository.full_name", 1);
+    var result = branchExtractor.getProperty(json);
+
+    expect(result).to.equal("emailTreeTest");
     done();
 
   });
 
   it('Should split ref field', function(done) {
 
-    var branchExtractor = new ExtractBranchAndRepositoryStringsFromWebhookNotification();
+    var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes();
     var result = branchExtractor.splitRef("refs/heads/newBranch");
 
-    expect(["refs","heads","newBranch"]).to.deep.equal(result);
+    expect(["refs", "heads", "newBranch"]).to.deep.equal(result);
     done();
 
   });
-
-
 });

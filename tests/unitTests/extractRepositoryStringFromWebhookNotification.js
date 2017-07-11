@@ -178,7 +178,7 @@ var json = {
 };
 
 describe('Extract Branch and Repository name from json obtained through github Webhook', function() {
-  it.only('Should get branch', function(done) {
+  it('Should get branch', function(done) {
 
     var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
     var result = branchExtractor.findBranch(json);
@@ -187,7 +187,7 @@ describe('Extract Branch and Repository name from json obtained through github W
     done();
 
   });
-  it.only('Should get ref field', function(done) {
+  it('Should get ref field', function(done) {
 
     var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
     var result = branchExtractor.getRef(json);
@@ -197,7 +197,7 @@ describe('Extract Branch and Repository name from json obtained through github W
 
   });
 
-  it.only('Should split ref field', function(done) {
+  it('Should split ref field', function(done) {
 
     var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
     var result = branchExtractor.splitRef("LauLlobet/emailTreeTest");

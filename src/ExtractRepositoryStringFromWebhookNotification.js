@@ -1,7 +1,12 @@
 var fs = require('fs');
 //var gcloud = require("gcloud");
 
-function ExtractBranchAndRepositoryStringsFromWebhookNotification() {}
+function ExtractBranchAndRepositoryStringsFromWebhookNotification(positionInString, property) {
+
+	this.positionInString = positionInString;
+	this.property = property;
+
+}
 
 ExtractBranchAndRepositoryStringsFromWebhookNotification.prototype.findBranch = function(jsonString) {
 	var ref = this.getRef(jsonString);
