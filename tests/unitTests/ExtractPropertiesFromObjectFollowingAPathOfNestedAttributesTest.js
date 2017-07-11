@@ -179,7 +179,7 @@ var json = {
 
 describe('Extract Branch and Repository name from json obtained through github Webhook', function() {
 
-  it.only('Get ref should get any property string following the json path provided', function(done) {
+  it('Get ref should get any property string following the json path provided', function(done) {
 
     var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes("head_commit.author.email");
     var result = branchExtractor.getRef(json);
@@ -189,7 +189,7 @@ describe('Extract Branch and Repository name from json obtained through github W
 
   });
 
-  it.only('Should get first property string with repository.name', function(done) {
+  it('Should get first property string with repository.name', function(done) {
 
     var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes("repository.full_name", 0);
     var result = branchExtractor.getProperty(json);
@@ -199,7 +199,7 @@ describe('Extract Branch and Repository name from json obtained through github W
 
   });
 
-  it.only('Should get second property string with repository.name', function(done) {
+  it('Should get second property string with repository.name', function(done) {
 
     var branchExtractor = new ExtractPropertiesFromObjectFollowingAPathOfNestedAttributes("repository.full_name", 1);
     var result = branchExtractor.getProperty(json);

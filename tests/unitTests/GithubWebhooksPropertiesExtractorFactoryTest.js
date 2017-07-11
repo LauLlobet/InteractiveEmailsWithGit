@@ -1,5 +1,5 @@
 var chai = require('chai');
-var ExtractRepositoryStringFromWebhookNotification = require('./../../src/ExtractRepositoryStringFromWebhookNotification');
+var GithubWebhooksPropertiesExtractorFactory = require('./../../src/GithubWebhooksPropertiesExtractorFactory');
 var expect = chai.expect; // we are using the "expect" style of Chai
 var json = {
   "ref": "refs/heads/newBranch",
@@ -177,35 +177,24 @@ var json = {
   }
 };
 
-describe('Extract Branch and Repository name from json obtained through github Webhook', function() {
-  it('Should get branch', function(done) {
-
-    var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
-    var result = branchExtractor.findBranch(json);
-
-    expect("emailTreeTest").to.equal(result);
-    done();
-
-  });
-  it('Should get ref field', function(done) {
-
-    var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
-    var result = branchExtractor.getRef(json);
-
-    expect("LauLlobet/emailTreeTest").to.equal(result);
-    done();
-
-  });
-
-  it('Should split ref field', function(done) {
-
-    var branchExtractor = new ExtractRepositoryStringFromWebhookNotification();
-    var result = branchExtractor.splitRef("LauLlobet/emailTreeTest");
-
-    expect(["LauLlobet","emailTreeTest"]).to.deep.equal(result);
-    done();
-
-  });
 
 
+describe('Create extractor objects specialized on extracting repository info from github webhooks', function() {
+	it.only('Get ref should get any property string following the json path provided', function(done) {
+		var githubWebhooksPropertiesExtractorFactory = new GithubWebhooksPropertiesExtractorFactory();
+		var repoExtractor = githubWebhooksPropertiesExtractorFactory.create("repository");
+		var repoName = repoExtractor.getProperty(json);
+
+		expect(repoName).to.equal("emailTreeTest");
+		done();
+	});
+
+	it.only('Get ref should get any property string following the json path provided', function(done) {
+		var githubWebhooksPropertiesExtractorFactory = new GithubWebhooksPropertiesExtractorFactory();
+		var nameExtractor = githubWebhooksPropertiesExtractorFactory.create("name");
+		var userName = nameExtractor.getProperty(json);
+
+		expect(userName).to.equal("LauLlobet");
+		done();
+	});
 });
