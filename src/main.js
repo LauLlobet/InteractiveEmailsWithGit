@@ -4,7 +4,7 @@ var express = require('express')
 app.use(express.bodyParser());
 
 app.post('/', function(request, response){
-  console.log(request.body);      // your JSON
+  console.log(request.body+" hola");      // your JSON
   response.send(request.body);    // echo the result back
 });
 
