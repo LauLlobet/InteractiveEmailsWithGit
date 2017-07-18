@@ -2,7 +2,7 @@
 
 var chai = require('chai');
 var expect = chai.expect; // we are using the "expect" style of Chai
-var GitHubRepository = require('./../src/GitHubRepository');
+var GitHubRepository = require('./../../src/GitHubRepository');
 
 describe('GitHubRepository', function() {
 	

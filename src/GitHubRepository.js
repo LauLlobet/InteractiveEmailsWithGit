@@ -2,7 +2,7 @@
 
 var ghdownload = require('github-download');
 var getJSON = require("./getJSON");
-var oauth = require("./oauth");
+var oauth = require("../auths/oauth");
 
 
 function GitHubRepository(user, repositoryName, succed, fail) {
@@ -16,13 +16,12 @@ function GitHubRepository(user, repositoryName, succed, fail) {
 
 GitHubRepository.prototype.isExisting = function(succed, fail) {
   this.setPath('/repos/' + this.user + '/' + this.repositoryName);
-  console.log(this.options.path);
   this.jsonFromApiIsFound(succed, fail);
 };
 
 GitHubRepository.prototype.setPath = function(path) {
   this.options.path = path + oauth;
-  
+
 };
 
 GitHubRepository.prototype.setBranch = function(branchName, succed, fail) {
@@ -37,7 +36,7 @@ GitHubRepository.prototype.isExistingBranch = function(succed, fail) {
 
 
 GitHubRepository.prototype.jsonFromApiIsFound = function(succed, fail) {
-  getJSON(this.options,  function(status, result) {
+  getJSON(this.options, function(status, result) {
     //console.log("------>" + result.message);
     if (result.message === "Not Found") {
       fail();
@@ -49,4 +48,3 @@ GitHubRepository.prototype.jsonFromApiIsFound = function(succed, fail) {
 };
 
 module.exports = GitHubRepository;
-
