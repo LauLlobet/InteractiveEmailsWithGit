@@ -1,5 +1,5 @@
 ____HEROKU_SESSION______
-var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNoification(jsonFromPost);
+var pushEventProperties = extractBranchAndRepositoryStringsFromWebhookNotification(jsonFromPost);
 {
 	repository: "interactive"
 	branch: "brancaDelMono"
