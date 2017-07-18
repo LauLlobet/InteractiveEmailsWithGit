@@ -16,6 +16,6 @@ app.get('/', function(req, res) {
   res.send("TEST");
 });
 
-http.listen(8080,function(){
+http.listen(80,function(){
 	console.log("escoltant");	
 })
