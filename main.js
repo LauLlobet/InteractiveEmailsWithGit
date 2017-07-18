@@ -11,6 +11,10 @@ app.post('/', function(request, response){
   response.send(request.body);    // echo the result back
 });
 
+app.get('/', function(req, res) {  
+
+  res.send("TEST");
+});
 
 http.listen(8080,function(){
 	console.log("escoltant");	
