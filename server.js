@@ -16,6 +16,7 @@ app.get('/', function(req, res) {
   res.send("TEST");
 });
 
-http.listen(80,function(){
-	console.log("escoltant");	
-})
+ var server = app.listen(process.env.PORT || 8080, function() {
+        var port = server.address().port;
+        console.log("App now running on port", port);
+ });
