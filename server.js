@@ -4,12 +4,15 @@ var postJSON = require("./src/postJSON");
 var app = require("express")();
 var http = require("http").Server(app);
 var request = require('request');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.post('/', function(request, response){
   console.log(request.body);      // your JSON
-  //response.send(JSON.stringify(request.body));    // echo the result back
-  response.send("TEST2");
+  response.send(request.body);    // echo the result back
+  //response.send("TEST2");
 
 });
 
