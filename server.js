@@ -8,8 +8,8 @@ var request = require('request');
 
 app.post('/', function(request, response){
   console.log(request.body);      // your JSON
-  response.send(JSON.stringify(request));    // echo the result back
-  //response.send("TEST");
+  //response.send(JSON.stringify(request.body));    // echo the result back
+  response.send("TEST2");
 
 });
 
