@@ -13,21 +13,21 @@ GitHubDownloader.prototype.download = function(gitHubRepository, folder, success
 	//{user: 'jprichardson', repo: 'vcsurl', ref: 'master'}
 
 	ghdownload({
-			user: 'LauLlobet',
-			repo: 'cvFromGithub',
-			ref: '24feb'
+			user: gitHubRepository.user,
+			repo: gitHubRepository.repositoryName,
+			ref: gitHubRepository.branchName
 		}, folder)
 		.on('dir', function(dir) {
-			//console.log(dir);
+			console.log(dir);
 		})
 		.on('file', function(file) {
-			//console.log(file);
+			console.log(file);
 		})
 		.on('zip', function(zipUrl) { //only emitted if Github API limit is reached and the zip file is downloaded 
-			//console.log(zipUrl);
+			console.log(zipUrl);
 		})
 		.on('error', function(err) {
-			//console.error(err);
+			console.error(err);
 			fail();
 		})
 		.on('end', function() {

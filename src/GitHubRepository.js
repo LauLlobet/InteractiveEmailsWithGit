@@ -3,6 +3,7 @@
 var ghdownload = require('github-download');
 var getJSON = require("./getJSON");
 var oauth = require("../auths/oauth");
+var GitHubDownloader = require('./GitHubDownloader');
 
 
 function GitHubRepository(user, repositoryName, succed, fail) {
@@ -11,6 +12,13 @@ function GitHubRepository(user, repositoryName, succed, fail) {
   this.options = require('./gitHubApiRequests.json');
   this.isExisting(succed, fail);
 }
+
+GitHubRepository.prototype.download = function(folder, success, fail) {
+   var downloader = new GitHubDownloader();
+   downloader.download(this,folder,success, fail);
+
+
+  };
 
 
 
