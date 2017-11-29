@@ -12,7 +12,7 @@ describe('GitHubRepository Downloader', function() {
         this.timeout(60000); 
         rimraf.sync("./tmp2");
 
-        var gitHubRepository = new GitHubRepository("LauLlobet", "cvFromGithub", function() {
+        var gitHubRepository = new GitHubRepository("LauLlobet", "empty--stubRepository-for-testing", function() {
           gitHubRepository.setBranch("master", function() {
             
             var gitHubDownloader = new GitHubDownloader();

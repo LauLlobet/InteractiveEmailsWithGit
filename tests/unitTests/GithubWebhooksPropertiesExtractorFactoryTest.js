@@ -180,7 +180,7 @@ var json = {
 
 
 describe('Create extractor objects specialized on extracting repository info from github webhooks', function() {
-	it.only('Get ref should get any property string following the json path provided', function(done) {
+	it('Get ref should get any property string following the json path provided', function(done) {
 		var githubWebhooksPropertiesExtractorFactory = new GithubWebhooksPropertiesExtractorFactory();
 		var repoExtractor = githubWebhooksPropertiesExtractorFactory.create("repository");
 		var repoName = repoExtractor.getProperty(json);
@@ -189,7 +189,7 @@ describe('Create extractor objects specialized on extracting repository info fro
 		done();
 	});
 
-	it.only('Get ref should get any property string following the json path provided', function(done) {
+	it('Get ref should get any property string following the json path provided', function(done) {
 		var githubWebhooksPropertiesExtractorFactory = new GithubWebhooksPropertiesExtractorFactory();
 		var nameExtractor = githubWebhooksPropertiesExtractorFactory.create("name");
 		var userName = nameExtractor.getProperty(json);

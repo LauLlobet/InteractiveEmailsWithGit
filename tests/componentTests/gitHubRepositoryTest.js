@@ -7,7 +7,7 @@ var GitHubRepository = require('./../../src/GitHubRepository');
 describe('GitHubRepository', function() {
 	
   it('constructor\'s succeed callback should be called if the repository and user exists.', function(done) {
-    var gitHubDownloader = new GitHubRepository("LauLlobet","cvFromGithub", function(){
+    var gitHubDownloader = new GitHubRepository("LauLlobet","empty--stubRepository-for-testing", function(){
     	done();
     },
     function(){
@@ -29,7 +29,7 @@ describe('GitHubRepository', function() {
 
 
   it('setBranch should call success callback if the branch name is correct.', function(done) {
-    var gitHubDownloader = new GitHubRepository("LauLlobet","cvFromGithub",
+    var gitHubDownloader = new GitHubRepository("LauLlobet","empty--stubRepository-for-testing",
 
     function(){
     	gitHubDownloader.setBranch('master', function(){
@@ -49,7 +49,7 @@ describe('GitHubRepository', function() {
 
 
   it('setBranch should call success callback if the branch name is correct.', function(done) {
-    var gitHubDownloader = new GitHubRepository("LauLlobet","cvFromGithub",
+    var gitHubDownloader = new GitHubRepository("LauLlobet","empty--stubRepository-for-testing",
 
     function(){
       gitHubDownloader.setBranch('masterblaster', function(){
