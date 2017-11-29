@@ -1,4 +1,4 @@
-Private lessons on how to build a backend with Node.js and TDD
+Private lessons project on how to build a backend with Node.js and TDD
 ===============================================================
 Given by **Lau Llobet** to [**Oscar V**](https://github.com/OscarValcarcel)
 
@@ -21,6 +21,7 @@ From Feb.17 to Sept.17
 
 ![alt text](https://github.com/LauLlobet/teaching--Emailsender-When-Push/raw/master/plan.png "Logo Title Text 1")
 * Finally we used Heroku instead of Lambda and we used NetSend instead of MailChimp
+
 
 
 
