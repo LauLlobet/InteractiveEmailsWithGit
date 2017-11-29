@@ -1,6 +1,7 @@
 Private lessons on how to build a backend with Node.js and TDD
 ===============================================================
-Given by **Lau Llobet** to **Oscar V** [GH](https://github.com/OscarValcarcel)
+Given by **Lau Llobet** to [**Oscar V**](https://github.com/OscarValcarcel)
+
 From Feb.17 to Sept.17
 
 ## Objective
