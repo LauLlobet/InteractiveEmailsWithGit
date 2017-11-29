@@ -7,7 +7,7 @@ From Feb.17 to Sept.17
 * Build a backend using current tools (GitHub API, NetSend API, Firebase, Heroku)
 * See the TDD workflow (failing test first, SOLID, Walking Skeleton first)
 * Learn Javascript
-* Learn Git
+* Learn Git (following [git successful branching model](http://nvie.com/posts/a-successful-git-branching-model/))
 
 ## What does the project do?
 * It listens for GitHub pushes in a certain repository
